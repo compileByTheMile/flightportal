@@ -406,7 +406,6 @@ def set_led_color(status_light, color_name):
     if color_name.lower() in colors:
         status_light[0] = colors[color_name.lower()]
         status_light.show()
-        print("set col"status_light)
         return True
     else:
         return False
@@ -453,15 +452,14 @@ while True:
                 else:
                     print("error parsing JSON, skip displaying this flight")
             else:
+                w.feed()
                 print("error loading details, skip displaying this flight")
             
             last_flight=flight_id
     else:
         #print("No flights found, clear display")
         clear_flight()
-    
     time.sleep(5)
-
 
     for i in range(0,QUERY_DELAY,+5):
         time.sleep(5)
